@@ -24,7 +24,9 @@ class FilaPreferencial(Fila):
     
     def abrircajanueva(self,maxenfila,filanueva):
         """Si maxenfila es menor que la cantidad de clientes actualmente en espera, abro nueva caja"""
-        pass
+        if maxenfila<self.enfila:
+            filanueva = FilaPreferencial()
+            
     
     
     
@@ -41,8 +43,6 @@ class FilaGeneral(Fila):
         self.enfila-=1
         self.fila.pop(0)
         
-
-    
 
 class cliente(object):
      """clase cliente """
@@ -65,5 +65,6 @@ if __name__ == "__main__":
     customer.modificarcategoria("preferencial")
     fila = FilaPreferencial()
     fila.insertar(customer)
+    
     print(fila.enfila)
     
